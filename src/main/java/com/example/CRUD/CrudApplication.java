@@ -1,9 +1,8 @@
 package com.example.CRUD;
 
-import com.example.CRUD.domain.classes.Carro;
-import com.example.CRUD.domain.classes.Empregado;
-import com.example.CRUD.domain.classes.Motorista;
+import com.example.CRUD.domain.classes.*;
 import com.example.CRUD.domain.enuns.Profissoes;
+import com.example.CRUD.domain.enuns.Status;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,9 +11,6 @@ public class CrudApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudApplication.class, args);
-
-		Carro carro = new Carro();
-		carro.setRoda("plastico");
 
 		Empregado empregado = new Empregado();
 		empregado.setIdade(43);
@@ -29,10 +25,15 @@ public class CrudApplication {
 		System.out.println("Idade: " + desenvolvedor.getIdade() + " " + desenvolvedor.getProfissao());
 		desenvolvedor.aniversario();
 		System.out.println("Idade nova: " + desenvolvedor.getIdade() + " " + desenvolvedor.getProfissao());
+
+		Entrevista entrevista = new Entrevista();
+		entrevista.setCandidato("Joãozinho");
+		entrevista.setResponsavelRH("Maria RH");
+		entrevista.setArea("Obra");
+		entrevista.setLocal("Canoas");
+		entrevista.setNome("EmpresaX");
+		entrevista.setStatus(String.valueOf(Status.APROVADO));
+		entrevista.contratado();
+		System.out.println("Olá" + entrevista.getCandidato() + "! Parabéns, você foi " + entrevista.getStatus() + " pela " + entrevista.getNome());
 	}
-
-
-
-
-
 }
